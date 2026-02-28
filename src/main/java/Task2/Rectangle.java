@@ -1,11 +1,13 @@
 package Task2;
 
-public class Rectangle implements Geometry {
+public class Rectangle implements Geometry, IColorable, IOutputable {
     float a;
     float b;
     String colorBorder;
     String colorFill;
 
+   static float perimetr;
+   static float area;
 
     public Rectangle(float a, float b){
         this.a = a;
@@ -33,10 +35,34 @@ public class Rectangle implements Geometry {
         return (a * b);
     }
 
-    public static void main(String[] args) {
-        Rectangle ABCD = new Rectangle(4,3.4f, "red", "red");
-        ABCD.info();
-        System.out.println("P = " + ABCD.findPerimeter());
-        System.out.println("S = " + ABCD.findArea());
+    @Override
+    public void setColorBorder(String colorBorder) {
+        this.colorBorder = colorBorder;
     }
+
+    @Override
+    public void setColorFill(String colorFill) {
+        this.colorFill = colorFill;
+    }
+
+    @Override
+    public void printResult() {
+        System.out.println("P = " + perimetr + ", S = " + area + ", цвет контура - " + colorBorder + ", цвет заливки - " + colorFill);
+
+    }
+
+
+    public static void main(String[] args) {
+        Rectangle ABCD = new Rectangle(4,3.4f);
+        ABCD.setColorBorder("red");
+        ABCD.setColorFill("red");
+        ABCD.info();
+        area = ABCD.findArea();
+        perimetr = ABCD.findPerimeter();
+        ABCD.printResult();
+
+    }
+
+
+
 }

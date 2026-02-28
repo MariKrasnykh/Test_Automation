@@ -1,7 +1,7 @@
 package Task2;
 import java.lang.Math;
 
-public class Triangle implements Geometry {
+public class Triangle implements Geometry, IColorable {
     int a;
     int b;
     int c;
@@ -27,6 +27,16 @@ public class Triangle implements Geometry {
     }
 
     @Override
+    public void setColorBorder(String colorBorder) {
+        this.colorBorder = colorBorder;
+    }
+
+    @Override
+    public void setColorFill(String colorFill) {
+        this.colorFill = colorFill;
+    }
+
+    @Override
     public float findPerimeter() {
         return (a + b + c);
     }
@@ -38,9 +48,13 @@ public class Triangle implements Geometry {
     }
 
     public static void main(String[] args) {
-        Triangle ABC = new Triangle(9,10,17, "black", "white");
+        Triangle ABC = new Triangle(9,10,17);
         ABC.info();
+        ABC.setColorBorder("black");
+        ABC.setColorFill("white");
         System.out.println("P = " + ABC.findPerimeter());
         System.out.println("S = " + ABC.findArea());
     }
+
+
 }

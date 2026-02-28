@@ -1,6 +1,6 @@
 package Task2;
 
-public class Circle implements Geometry{
+public class Circle implements Geometry, IColorable{
     int radius;
     String colorBorder;
     String colorFill;
@@ -15,6 +15,17 @@ public class Circle implements Geometry{
         System.out.println("Круг с радиусом " + radius
                 + " и цветом контура - " + colorBorder + ", цветом заливки - " + colorFill);
     }
+
+    @Override
+    public void setColorBorder(String colorBorder) {
+        this.colorBorder = colorBorder;
+    }
+
+    @Override
+    public void setColorFill(String colorFill) {
+        this.colorFill = colorFill;
+    }
+
     @Override
     public float findPerimeter() {
         throw new UnsupportedOperationException();
@@ -32,4 +43,6 @@ public class Circle implements Geometry{
         System.out.println("S = " + circle.findArea());
         System.out.println("P = " + circle.findPerimeter());
     }
+
+
 }
